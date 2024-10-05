@@ -3,7 +3,7 @@ const nextConfig = {
     async rewrites() {
       return [
         {
-          source: '/:path*',
+          source: '/auth/google',
           destination: '/:path*'  // Permet à Next.js de gérer toutes les routes
         }
       ];
