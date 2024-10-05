@@ -4,8 +4,8 @@ export default {
     return [
       {
         source: '/auth/google',
-        destination: '/api/auth/google', // Exemples de redirection
-        permanent: false,
+        destination: '/auth/google', // Exemple de redirection
+        permanent: false, // Utilisez 'true' si vous voulez que ce soit une redirection permanente
       },
       // Ajoutez d'autres redirections si nécessaire
     ];
