@@ -21,6 +21,11 @@ app.prepare().then(() => {
   server.use(passport.initialize());
   server.use(passport.session());
 
+  // Redirection à la racine
+  server.get('/', (req, res) => {
+    res.redirect('/auth/google'); // Redirige vers l'authentification Google
+  });
+
   // Route d'authentification Google
   server.get('/auth/google', passport.authenticate('google', {
     scope: ['profile', 'email'],
