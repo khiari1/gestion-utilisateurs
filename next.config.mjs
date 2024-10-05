@@ -1,17 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  async rewrites() {
+// next.config.mjs
+export default {
+  async redirects() {
     return [
       {
-        source: '/auth/google', // Le chemin d'origine que vous voulez réécrire
-        destination: '/auth/google' // La destination, qui peut être la même ou différente
+        source: '/auth/google',
+        destination: '/api/auth/google', // Exemples de redirection
+        permanent: false,
       },
-      {
-        source: '/:path*', // Cette règle va s'appliquer à tous les chemins
-        destination: '/:path*' // Permet à Next.js de gérer toutes les routes
-      }
+      // Ajoutez d'autres redirections si nécessaire
     ];
-  }
+  },
 };
-
-export default nextConfig;
