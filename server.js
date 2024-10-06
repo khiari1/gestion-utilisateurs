@@ -212,8 +212,16 @@ app.prepare().then(() => {
 
   // Démarrage du serveur
   const port = process.env.PORT || 3001;
-  server.listen(port, (err) => {
-  if (err) throw err;
-  console.log(`Le serveur est en cours d'exécution sur le port ${port}`);
-  });
+
+  if (process.env.NODE_ENV !== 'production') {
+    // Exécution locale
+    server.listen(port, (err) => {
+      if (err) throw err;
+      console.log(`Le serveur est en cours d'exécution sur le port ${port}`);
+    });
+  } else {
+    // Exécution sur Vercel
+    module.exports = server;
+  }
+  
 });
