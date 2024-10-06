@@ -159,7 +159,7 @@ app.prepare().then(() => {
 
             <!-- Bouton de déconnexion -->
             <div class="logout-btn">
-              <a href="http://localhost:3000/auth/logout"><button>Se déconnecter</button></a>
+              <a href="/auth/logout"><button>Se déconnecter</button></a>
             </div>
 
             <!-- Bouton pour rediriger vers le portfolio -->
@@ -211,8 +211,9 @@ app.prepare().then(() => {
   });
 
   // Démarrage du serveur
-  server.listen(3000, (err) => {
-    if (err) throw err;
-    console.log('Le serveur est en cours d\'exécution sur le port 3000');
+  const port = process.env.PORT || 3001;
+  server.listen(port, (err) => {
+  if (err) throw err;
+  console.log(`Le serveur est en cours d'exécution sur le port ${port}`);
   });
 });
